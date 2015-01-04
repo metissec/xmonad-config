@@ -12,6 +12,7 @@ main = do
 
     xmonad $ defaultConfig
         { terminal = "urxvt"
+	, modMask = myModMask
 	, focusedBorderColor = "#0000ff"
 	, manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
@@ -20,8 +21,8 @@ main = do
                         , ppTitle = xmobarColor "green" "" . shorten 25
                         }
 	} `additionalKeys`
-	[((mod1Mask, xK_y), spawn "chromium")
-	,((mod1Mask, xK_u), spawn "emacs")
+	[((myModMask, xK_y), spawn "chromium")
+	,((myModMask, xK_u), spawn "emacs")
 	,((0       , xK_F1), prevWS)
    	,((0       , xK_F2), nextWS)
 	,((0       , xK_F6), spawn "xbacklight -dec 10")
@@ -30,3 +31,5 @@ main = do
 	,((0       , xK_F9), spawn "amixer set Master 10- unmute")
 	,((0       , xK_F10),spawn "amixer set Master 10+ unmute")
 	]
+	
+myModMask = mod4Mask
