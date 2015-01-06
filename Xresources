@@ -1,10 +1,13 @@
 !Transparent background
 URxvt*transparent: true
 URxvt*shading: 15
+
 !Spacing
 URxvt*letterSpace: -1
+
 !Font
 URxvt*font:xft:DejavuSansMono:pixelsize=15
+
 ! Background color
 URxvt*background:black
 
