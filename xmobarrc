@@ -7,7 +7,7 @@ Config { font = "xft:DejavuSansMono:pixelsize=13"
         , commands = [ Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
 	  	       	, Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
 	  	        , Run Memory ["-t","Mem: <usedratio>%"] 10
-                        , Run Com "uname" ["-s","-r"] "" 36000
+			, Run Com "uname" ["-s","-r"] "" 36000
                         , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
 			, Run Battery ["-t","Batt: <left>%"] 0
 			, Run StdinReader

@@ -4,6 +4,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Actions.CycleWS
+import XMonad.Actions.SpawnOn
 import qualified XMonad.StackSet as W
 import System.IO
 
@@ -15,6 +16,9 @@ main = do
         { terminal = "urxvt"
 	, modMask = myModMask
 	, focusedBorderColor = "#0000ff"
+	, startupHook = do
+	  	      spawnOn "1" "urxvt"
+		      spawnOn "1" "/home/james/.send_vol.sh"
 	, manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
@@ -24,6 +28,7 @@ main = do
 	} `additionalKeys`
 	[((myModMask, xK_y), spawn "chromium")
 	,((myModMask, xK_u), spawn "emacs")
+	,((myModMask, xK_grave), spawn "urxvt -e sudo wifi-menu")
 	,((mod1Mask , xK_F1), windows W.focusUp)
 	,((mod1Mask , xK_F2), windows W.focusDown)
 	,((0        , xK_F1), prevWS)
