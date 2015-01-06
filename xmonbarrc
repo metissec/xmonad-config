@@ -1,4 +1,4 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+Config { font = "xft:DejavuSansMono:pixelsize=13"
         , borderColor = "black"
         , border = TopB
         , bgColor = "black"
