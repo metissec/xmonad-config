@@ -30,9 +30,9 @@ main = do
    	,((0        , xK_F2), nextWS)
 	,((0        , xK_F6), spawn "xbacklight -dec 10")
 	,((0        , xK_F7), spawn "xbacklight -inc 10")
-	,((0        , xK_F8), spawn "amixer set Master toggle")
-	,((0        , xK_F9), spawn "amixer set Master 10- unmute")
-	,((0        , xK_F10),spawn "amixer set Master 10+ unmute")
+	,((0        , xK_F8), spawn "amixer set Master toggle && /home/james/.send_vol.sh")
+	,((0        , xK_F9), spawn "amixer set Master 10- unmute && /home/james/.send_vol.sh")
+	,((0        , xK_F10),spawn "amixer set Master 10+ unmute && /home/james/.send_vol.sh")
 	]
 	
 myModMask = mod4Mask
