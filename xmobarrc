@@ -4,9 +4,9 @@ Config { font = "xft:DejavuSansMono:pixelsize=13"
         , bgColor = "black"
         , fgColor = "grey"
 	, position = TopW L 100
-        , commands = [ Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-	  	       	, Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
+        , commands = [ Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
 	  	        , Run Memory ["-t","Mem: <usedratio>%"] 10
+			, Run Com "/home/james/.network_info.sh" [] "wifi" 30
 			, Run Com "uname" ["-s","-r"] "" 36000
                         , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
 			, Run Battery ["-t","Batt: <left>%"] 0
@@ -14,5 +14,5 @@ Config { font = "xft:DejavuSansMono:pixelsize=13"
                         ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% | Volume: %vol_pipe% | %memory% | %wlp1s0% }{<fc=#ee9a00>%date%</fc> | %uname% | %battery% "
+        , template = "%StdinReader% | Volume: %vol_pipe% | %memory% | Wifi: %wifi% }{<fc=#ee9a00>%date%</fc> | %uname% | %battery% "
         }
